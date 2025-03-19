@@ -7,6 +7,16 @@ const Navbar = () => {
   const navigate = useNavigate();
   const [showMenu, setShowMenu] = useState(false);
 
+
+  const [showDropdown, setShowDropdown] = useState(false);
+
+  // Toggle dropdown on click
+  const toggleDropdown = (e) => {
+    e.stopPropagation(); // Prevent event bubbling
+    setShowDropdown((prev) => !prev);
+  };
+
+
   const {token,setToken,userData}=useContext(AppContext);
   const logout=()=>{
      setToken(false);
@@ -14,7 +24,7 @@ const Navbar = () => {
   }
 
   return (
-    <div className="flex items-center justify-between text-sm py-4 mb-5 border-b border-b-gray-400">
+    <div  className="flex items-center justify-between text-sm py-4 mb-5 border-b border-b-gray-400">
       <img className="w-44 cursor-pointer" src={assets.logo} alt="Logo" />
 
       <ul className="hidden md:flex items-start gap-5 font-semibold">
@@ -38,14 +48,16 @@ const Navbar = () => {
 
       <div className="flex items-center gap-4">
         {token && userData ? (
-          <div className="flex items-center gap-2 cursor-pointer group relative">
+          <div onClick={toggleDropdown} className="flex items-center gap-2 cursor-pointer group relative">
             <img
               className="w-8 h-8 rounded-full"
               src={userData.image}
               alt="Profile"
             />
             <img className="w-2.5" src={assets.dropdown_icon} alt="Dropdown" />
-            <div className="absolute top-0 right-0 pt-14 text-base font-medium text-gray-600 hidden group-hover:block">
+            <div    className={`absolute top-0 right-0 pt-14 text-base font-medium text-gray-600 ${
+          showDropdown ? "block" : "hidden"
+        } group-hover:block`}>
               <div className="flex flex-col min-w-48 rounded bg-stone-100 gap-4 p-4">
                 <p
                   onClick={() => navigate("/my-profile")}
