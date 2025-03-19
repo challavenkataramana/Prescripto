@@ -11,9 +11,9 @@ const Navbar = () => {
 
   const [showDropdown, setShowDropdown] = useState(false);
 
-  // Toggle dropdown on click
+ 
   const toggleDropdown = (e) => {
-    e.stopPropagation(); // Prevent event bubbling
+    e.stopPropagation(); 
     setShowDropdown((prev) => !prev);
   };
 
