@@ -22,8 +22,8 @@ function Login() {
           password,
         });
         if (data.success) {
-          localStorage.setItem("aToken", data.token);
           toast.success("Login Successfull");
+          localStorage.setItem("aToken", data.token);
           setAToken(data.token);
           
         } else {
@@ -35,8 +35,8 @@ function Login() {
           password,
         });
         if (data.success) {
-          localStorage.setItem("dToken", data.token);
           toast.success("Login successfull");
+          localStorage.setItem("dToken", data.token);
           setDToken(data.token);
          
         } else {
