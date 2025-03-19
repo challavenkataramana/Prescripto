@@ -23,7 +23,9 @@ function Login() {
         });
         if (data.success) {
           localStorage.setItem("aToken", data.token);
+          toast.success("Login Successfull");
           setAToken(data.token);
+          
         } else {
           toast.error(data.message);
         }
@@ -34,8 +36,9 @@ function Login() {
         });
         if (data.success) {
           localStorage.setItem("dToken", data.token);
-          setDToken(data.token);
           toast.success("Login successfull");
+          setDToken(data.token);
+         
         } else {
           toast.error(data.message);
         }
