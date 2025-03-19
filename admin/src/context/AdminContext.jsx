@@ -55,7 +55,6 @@ const AdminContextProvider = (props) => {
       });
       if (data.success) {
         setAppointments(data.appointments);
-        console.log(data.appointments);
       } else {
         toast.error(data.message);
       }
@@ -78,7 +77,7 @@ const AdminContextProvider = (props) => {
         getDashData();
       } else {
         toast.error(data.message);
-      }
+      }y
     } catch (e) {
       console.log(e);
       toast.error(e.message);
