@@ -77,7 +77,7 @@ const AdminContextProvider = (props) => {
         getDashData();
       } else {
         toast.error(data.message);
-      }y
+      }
     } catch (e) {
       console.log(e);
       toast.error(e.message);
